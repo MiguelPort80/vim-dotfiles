@@ -53,10 +53,27 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 set relativenumber
 set number
 set runtimepath^=~/.vim
-colorscheme slate
+" Mostra barra de status sempre
+set laststatus=2
+
+" Define o conteúdo da barra de status
+set statusline=
+set statusline+=[%n]\                           " Número do buffer
+set statusline+=%f\                             " Caminho relativo do arquivo
+set statusline+=%m                              " Indicador de modificado [+]
+set statusline+=%r                              " Indicador de somente leitura [RO]
+set statusline+=%=                              " Separa o lado esquerdo do direito
+set statusline+=%y\                             " Tipo de arquivo (ex: python, vim)
+set statusline+=\ [ENC:%{&fileencoding}]\       " Codificação (UTF-8, etc)
+set statusline+=\ Linha:%l/%L\ (Col:%c)         " Linha atual/Total e Coluna
+
+colorscheme novum
+
+" Atalhos de teclado
 nnoremap <PageUp>   :bprevious<CR>
 nnoremap <PageDown> :bnext<CR>
 nnoremap <C-s> :w<CR>
 nnoremap <C-Delete> :bdelete<CR>
 nnoremap <C-h>   :tabprevious<CR>
 nnoremap <C-l> :tabnext<CR>
+
